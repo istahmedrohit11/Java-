@@ -1,0 +1,14 @@
+class HelloWorld {
+    public static void main(String args[]){
+    byte age=10;
+    int age2=20; 
+    short age3=30;
+    long age4=4444444444444444444L;
+    float f1=5.6f;
+    double d1=4.66;
+    char ch='A';
+    boolean a=true;
+    System.out.println(age4);
+
+    } 
+}
