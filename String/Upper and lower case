@@ -1,0 +1,13 @@
+
+class HelloWorld {
+    public static void main(String args[]){
+        String name ="Rohit";
+        int value =name.length();
+        System.out.println("Length of the string is: "+value);
+        String lstring =name.toLowerCase();
+        System.out.println("Lower case string is: "+lstring);
+        String ustring =name.toUpperCase();
+        System.out.println("Upper case string is: "+ustring);
+    
+    } 
+}
