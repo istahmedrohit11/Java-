@@ -1,0 +1,9 @@
+
+class HelloWorld {
+    public static void main(String args[]){
+    String name = "Rohit";
+    System.out.println(name.replace("R","I"));
+    } 
+}
+// Output: Iohit
+// Explanation: The replace() method replaces all occurrences of a character with another character. In this case, it replaces all occurrences of 'R' with 'I'. So, the output is "Iohit".
