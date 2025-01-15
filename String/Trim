@@ -1,0 +1,9 @@
+
+class HelloWorld {
+    public static void main(String args[]){
+    String  nonTrimmedString = "     Rohit     ";
+    System.out.println("Before: "+nonTrimmedString);
+    String trimmedString = nonTrimmedString.trim();
+    System.out.println("After: "+trimmedString);
+    } 
+}
