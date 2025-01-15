@@ -1,0 +1,9 @@
+class HelloWorld {
+    public static void main(String args[]){
+    int a=6;
+    float b=5.6f;
+    System.out.printf("The value of a is %d and the value of b is %.2f\n",a,b);
+    System.out.format("The value of a is %d and the value of b is %.2f",a,b);
+    // printf and format are same
+    } 
+}
