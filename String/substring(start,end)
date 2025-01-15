@@ -1,0 +1,14 @@
+
+class HelloWorld {
+    public static void main(String args[]){
+    String name = "Rohit";
+    System.out.println(name.substring(0, 2));
+    } 
+}
+// Output: Ro
+// Explanation: The substring() method is used to extract a part of a string.
+//  It takes two arguments, the starting index and the ending index (exclusive)
+//   of the substring to be extracted. In this case, the substring() method is 
+//   used to extract the first two characters of the string "Rohit", which 
+//   are "Ro". The extracted substring is then printed to the console using 
+//   the println() method.
