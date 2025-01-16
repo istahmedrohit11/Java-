@@ -1,0 +1,15 @@
+
+class HelloWorld {
+    public static void main(String args[]){
+    String name = "Harryrry";
+    System.out.println(name.charAt(0));
+    System.out.println(name.indexOf('H'));
+    System.out.println(name.indexOf("y",5));
+    System.out.println(name.lastIndexOf('y'));
+    System.out.println(name.lastIndexOf("y",5));
+    System.out.println(name.equals("Harryrry"));
+    System.out.println(name.equalsIgnoreCase("harryrry"));
+
+    } 
+}
+
