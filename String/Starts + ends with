@@ -1,0 +1,8 @@
+class HelloWorld {
+    public static void main(String args[]){
+    String name = "Rohit";
+    System.out.println(name.startsWith("Ro"));
+    System.out.println(name.endsWith("t"));
+    System.out.println(name.contains("I"));
+    } 
+}
