@@ -1,0 +1,29 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.println("Enter a word:");
+        String word = sc.next(); // Read a single word input
+
+        switch (word) {
+            case "Apple":
+            case "apple":
+                System.out.println("You entered Apple.");
+                break;
+            case "Banana":
+            case "banana":
+                System.out.println("You entered Banana.");
+                break;
+            case "Cherry":
+            case "cherry":
+                System.out.println("You entered Cherry.");
+                break;
+            default:
+                System.out.println("Word not recognized.");
+        }
+
+        sc.close(); // Close the Scanner
+    }
+}
