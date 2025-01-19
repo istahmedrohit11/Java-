@@ -1,0 +1,35 @@
+import java.util.*;
+class HelloWorld {
+    public static void main(String args[]){
+        Scanner sc=new Scanner(System.in);
+        System.out.print("Enter a vowel:");
+        char vowel=sc.next().charAt(0);
+        switch (vowel) {
+            case 'A':
+            case 'a':
+                System.out.println("You entered A.");
+                break;
+            case 'E':
+            case 'e':
+                System.out.println("You entered E.");
+                break;
+            case 'I':
+            case 'i':
+                System.out.println("You entered I.");
+                break;
+            case 'O':
+            case 'o':
+                System.out.println("You entered O.");
+                break;
+            case 'U':
+            case 'u':
+                System.out.println("You entered U.");
+                break;
+            default:
+                System.out.println("That's not a vowel.");
+        }
+        
+        
+    } 
+}
+
