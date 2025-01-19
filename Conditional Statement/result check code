@@ -1,0 +1,38 @@
+import java.util.Scanner;
+class HelloWorld {
+    public static void main(String args[]){
+        
+        Scanner sc=new Scanner(System.in);
+        int n1,n2,n3;
+        System.out.println("Physics: ");
+        n1=sc.nextInt();
+        System.out.println("Chemistry: ");
+        n2=sc.nextInt();
+        System.out.println("Math: ");
+        n3=sc.nextInt();
+        
+        int failcount =0;
+        if(n1<33){
+            System.out.println("Fail in Physics");
+            failcount++;
+        }
+        if(n2<33){
+            System.out.println("Fail in Chemistry");
+            failcount++;
+        }
+        if(n3<33){
+            System.out.println("Fail in Biology");
+            failcount++;
+        }
+        float avg=(n1+n2+n3)/3;
+
+        if(failcount>0){
+            System.out.println("You have failed because you didn't pass in all subjects");
+        }else if(avg>40){
+            System.out.println("Your average is:"+avg);
+        }else{
+            System.out.println("You failed because your average marks are less than 40%.");
+        }
+    } 
+}
+
