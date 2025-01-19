@@ -24,12 +24,13 @@ class HelloWorld {
             System.out.println("Fail in Biology");
             failcount++;
         }
-        float avg=(n1+n2+n3)/3;
+        float avg=(n1+n2+n3)/3f;
 
         if(failcount>0){
             System.out.println("You have failed because you didn't pass in all subjects");
         }else if(avg>40){
-            System.out.println("Your average is:"+avg);
+            System.out.printf("Your average is :%.2f\n",avg);
+            
         }else{
             System.out.println("You failed because your average marks are less than 40%.");
         }
