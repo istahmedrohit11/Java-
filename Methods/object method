@@ -1,0 +1,14 @@
+import java.util.Scanner;
+
+class HelloWorld {
+     int sum(int x,int y){
+        int c=x+y;
+        return c;
+    }
+    public static void main(String args[]) {
+       int a=10,b=10;
+       HelloWorld obj= new HelloWorld();
+       int result = obj.sum(a,b);
+       System.out.println(result);
+    }
+}
