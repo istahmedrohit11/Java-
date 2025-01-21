@@ -1,0 +1,28 @@
+import java.util.Scanner;
+class employee{
+    int id;
+    String name;
+    public void print_details(){
+        System.out.println("my id is: "+id +" And my name is: "+name );
+    }
+}
+class HelloWorld {
+    public static void main(String args[]){
+        employee rohit =new employee();
+        employee messi= new employee();
+        //Setting Attributes
+        rohit.id=233014118;
+        rohit.name="IARohit";
+
+        messi.id=233014119;
+        messi.name="MESSI";
+
+        // System.out.println(rohit.id);
+        // System.out.println(rohit.name);
+        rohit.print_details();
+        messi.print_details();
+    
+    }
+} 
+// its a structure ,in c programming   
+    
