@@ -1,0 +1,18 @@
+import java.util.Scanner;
+
+class HelloWorld {
+    // Overloaded static method with no arguments
+    static void foo() {
+        System.out.println("Hello");
+    }
+
+    // Overloaded static method with an integer argument
+    static void foo(int a) {
+        System.out.println("Hello: " + a);
+    }
+    public static void main(String[] args) {
+    int a=55;
+    foo();
+    foo(a);
+    }
+}
