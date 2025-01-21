@@ -1,0 +1,21 @@
+import java.util.Scanner;
+
+class HelloWorld {
+    static void change(int []arr){
+            arr[0]=99;
+    }
+    public static void main(String args[]) {
+       int [] marks={52,73,77,80};
+       System.out.println("Before function call: ");
+       for(int i=0;i<marks.length;i++){
+        System.out.print(marks[i]);
+        System.out.print("\t");
+       }
+       change(marks);
+       System.out.println("\nAfter function call: ");
+       for(int i=0;i<marks.length;i++){
+        System.out.print(marks[i]);
+        System.out.print("\t");
+       }
+    }
+}
