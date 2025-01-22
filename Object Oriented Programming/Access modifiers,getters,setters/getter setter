@@ -1,0 +1,28 @@
+import java.util.Scanner;
+class Employee{
+    private int id;
+    private String name;
+
+    public String getname(){
+        return name;
+    }
+    public void setname(String n){
+        name=n;
+    }
+    public int getId(){
+        return id;
+    }
+    public void setId(int i){
+        id=i;
+    }
+}
+class HelloWorld {
+    public static void main(String args[]){
+    Employee harry= new Employee();
+    harry.setname("CodeWithHarry");
+    harry.setId(233014118);
+
+    System.out.println(harry.getname());
+    System.out.println(harry.getId());
+    }
+} 
