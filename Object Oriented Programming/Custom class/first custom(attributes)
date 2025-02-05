@@ -1,28 +1,37 @@
-import java.util.Scanner;
-class employee{
+
+ class Employee{
     int id;
     String name;
-    public void print_details(){
-        System.out.println("my id is: "+id +" And my name is: "+name );
+    long salary;
+    //method
+    public void printDetails(){
+        System.out.println("My id is:"+id);
+        System.out.println("My name is:"+name);
+        System.out.println("MY Salary:"+salary);
+    }
+    public long getSalary(){
+        return salary;
     }
 }
-class HelloWorld {
+public class Hello{
     public static void main(String args[]){
-        employee rohit =new employee();
-        employee messi= new employee();
-        //Setting Attributes
-        rohit.id=233014118;
-        rohit.name="IARohit";
+        System.out.println("this is my custom class");
+        Employee rohit = new Employee();
+        Employee ronaldo= new Employee();
+        //setting attributes
+        rohit.id=12;
+        rohit.name="Istiaque Ahmed";
+        rohit.salary=120000;
 
-        messi.id=233014119;
-        messi.name="MESSI";
+        ronaldo.id=40;
+        ronaldo.name="Suiii";
+        ronaldo.salary=9999999999L;
 
         // System.out.println(rohit.id);
         // System.out.println(rohit.name);
-        rohit.print_details();
-        messi.print_details();
-    
+        rohit.printDetails();
+        System.out.println("my salary is"+rohit.getSalary());
+        ronaldo.printDetails();
+        System.out.println("my salary is"+ronaldo.getSalary());
     }
-} 
-// its a structure ,in c programming   
-    
+}
