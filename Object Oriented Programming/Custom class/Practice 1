@@ -1,0 +1,33 @@
+//Write a Java program to create an Employee class with attributes name and salary. Implement methods to set and get the employee's name, retrieve the salary, and display employee details.
+
+//In the main method, create an Employee object, set the name using a method, assign a salary directly, and print the details using appropriate methods.
+
+class Employee{
+    String name;
+    int salary;
+     public int getSalary(){
+        return salary;
+    }
+    public String getname(){
+        return name;
+    }
+    public void setname(String n){
+        name=n;
+    }
+    public void display(){
+        System.out.println("Name is:"+name);
+        System.out.println("ID:"+salary);
+    }
+}
+public class Hello{
+    public static void main(String args[]){
+        System.out.println("This is my custom class");
+        Employee rohit=new Employee();
+        rohit.setname("Istiaque Ahmed");
+        System.out.println(rohit.getname());
+
+        //rohit.getSalary(12);
+        rohit.salary=233;
+        System.out.println(rohit.getSalary());
+    }
+}
