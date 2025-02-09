@@ -1,0 +1,16 @@
+//method overloading by changing parameter orders
+class Sum{
+    public void display(int x,String z){
+        System.out.println("ID="+x+" name:"+z);
+    }
+    public void display(String z,int x){
+        System.out.println("ID="+x+" name:"+z);
+    }
+}
+public class HelloWorld{
+    public static void main(String args[]){
+        Sum s= new Sum();
+        s.display("Rohit", 233014118);
+        s.display(233014118,"Rohit");   
+    }
+}
