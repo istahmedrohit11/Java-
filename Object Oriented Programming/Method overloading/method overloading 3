@@ -1,0 +1,17 @@
+class Sum{
+    public void display(int a,int b){
+        int x=a+b;
+        System.out.println("a+b="+x);
+    }
+    public void display(int a,int b,int c){
+        int x=a+b+c;
+        System.out.println("a+b+c="+x);
+    }
+}
+public class Hellocode{
+    public static void main(String[] args){
+        Sum s=new Sum();
+        s.display(10, 20);
+        s.display(10,20,30);  
+    }
+}
