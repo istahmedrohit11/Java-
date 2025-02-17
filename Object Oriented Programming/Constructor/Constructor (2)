@@ -1,0 +1,28 @@
+class Employee{
+    private int id;
+    private String name;
+
+    public Employee(String myname,int myid){
+        id=myid;
+        name=myname;
+    }
+    public String getname(){
+        return name;
+    }
+    public void setname(String n){
+        name=n;
+    }
+    public int getid(){
+        return id;
+    }
+    public void setid(int n){
+        id=n;
+    }
+}
+public class Hello{
+    public static void main(String[] args){
+    Employee rohit =new Employee("rohit",233014118);
+    System.out.println(rohit.getname());
+    System.out.println(rohit.getid());
+    }
+}
