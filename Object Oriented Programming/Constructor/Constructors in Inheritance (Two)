@@ -1,0 +1,22 @@
+class Base {
+    Base(){
+        System.out.println("Base Constructor");  // Output if called
+    }
+    Base(int a){
+        System.out.println("Overloaded Constructor: " + a);  // Output: Overloaded Constructor: 0
+    }
+}
+
+class Derived extends Base {  // Derived class inherits from Base
+    Derived() {
+        super(1);  // Calls the overloaded Base constructor with an argument
+        System.out.println("Derived Constructor");  // Output: Derived Constructor
+    }
+}
+
+public class HelloWorld{
+    public static void main(String[] args) {
+        // Base b = new Base();  // This line is commented, so it won't execute
+        Derived d = new Derived();  
+    }
+}
