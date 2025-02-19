@@ -1,0 +1,54 @@
+
+public class Hello{
+    public static void main(String[] args){
+        String s1="Rohit";
+        System.out.println(s1.length());
+
+        System.out.println(s1.charAt(0));// R
+        System.out.println(s1.charAt(4));// t
+
+        System.out.println("\t"+ s1.indexOf('R'));//0
+        System.out.println("\t" +s1.indexOf('t'));//4
+        System.out.println("\t" +s1.indexOf('i',0));//3
+        /*The indexOf(char ch, int fromIndex) method searches for the 
+        character 't' in the string, starting from the specified index (fromIndex).*/
+
+        System.out.println(s1.equals("Rohit"));//   true
+        System.out.println(s1.equals("ROHIT"));//   false
+
+        String u1="Ulab";
+        String u2="Daffodil";
+        String u3="Aiub";
+        String u4="ulab";
+        String u5="ulab";
+        System.out.println("\t"+u4.compareTo(u5));// output zero(because same same)
+        System.out.println("\t"+ u1.compareTo(u2));
+         /*compares "U" with "D", and since "U" comes after "D",
+          the result is a positive number (the difference in Unicode values).
+          U=85,D=68
+          "Ulab".compareTo("Daffodil") → 17 (because 'U' - 'D' = 85 - 68 = 17) */
+
+        System.out.println("\t"+"ulab".compareTo("aiub"));
+
+        /* 'a'= 97,'u'=ASCII 117. Since 'u' (117) is greater than 'a' (97), the result will be:
+        117 - 97 = 20 */
+
+        String x1="Istiaque_Ahmed_Rohit";
+        String obj1=x1.substring(8);
+        // start from index 8 and stop at last index
+        System.out.println(obj1);
+        String obj2=x1.substring(0,8);
+        //start from index 0 and stop at index 8
+        System.out.println(obj2);
+
+        String c1="Digital\t";
+        String c2=c1.concat("Bangladesh");
+        System.out.println(c2);
+
+        String e1 ="Rohit";
+    String upper_case=e1.toUpperCase();
+    System.out.println("\t"+upper_case);
+    String lower_case=e1.toLowerCase();
+    System.out.println("\t"+lower_case);
+    }      
+}
