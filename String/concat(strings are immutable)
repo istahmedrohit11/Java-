@@ -1,1 +1,17 @@
 
+public class Hello{
+    public static void main(String[] args) {
+        String str1 = "Hello"; // Original string
+
+        // Trying to modify the string
+        str1.concat(" World");
+
+        // Checking if the original string changed
+        System.out.println(str1);  // Output: "Hello" (unchanged)
+
+        // Assigning the result to a new reference
+        String str2 = str1.concat(" World");
+
+        System.out.println(str2);  // Output: "Hello World"
+    }
+}
