@@ -1,0 +1,13 @@
+public class Hello{
+    public static void main(String[] args){
+        int a = 10, b = 20;
+        // Using the ternary operator
+    int min = (a < b) ? a : b;
+    // if (a < b) {
+    //     min = a;
+    // } else {
+    //     min = b;
+    // }
+     System.out.println(min);
+    }     
+}
