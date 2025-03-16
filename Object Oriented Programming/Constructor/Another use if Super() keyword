@@ -1,0 +1,25 @@
+class Base{
+    Base(){
+        System.out.println("I am in base");
+    }
+    Base(int x){
+        System.out.println("Over Base loaded constructor."+x);
+    }
+}
+class Derived extends Base{
+    Derived(){
+        super(100);
+        System.out.println("I am in Derived");
+    }
+    Derived(int x,int y){
+        super(200);
+        System.out.println("Over Derived loaded constructor."+y);
+    }
+}
+public class Hello{
+    public static void main(String[] args){
+        Derived d1=new Derived();
+        System.out.println("---------");
+        Derived d=new Derived(20,30);
+    }
+}
