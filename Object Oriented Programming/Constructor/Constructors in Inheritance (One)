@@ -1,22 +1,40 @@
 class Base{
+    int x;
     Base(){
-        System.out.println("Base Constructor");
+        System.out.print("I am in base\t");
     }
-
+    public void setx(int x){
+        this.x=x;
+    }
+    public int getx(){
+        return x;
+    }
+    public void display(){
+        System.out.println("x is:"+x);
+    }
+}
 class Derived extends Base{
+    int y;
     Derived(){
-        System.out.println("Derived Constructor");
+        System.out.print("\nI am in Derived");
     }
+    public void sety(int y){
+        this.y=y;
+    }
+    public int gety(){
+        return y;
+    }
+    public void display(){
+        System.out.println("\ty is:"+y);
     }
 }
 public class Hello{
     public static void main(String[] args){
-        //Creating an object for base class
         Base b=new Base();
-        Derived d= new Derived();
-        // Output:
-        // Base Constructor 
-        // Base Constructor
-        // Derived Constructor
+        b.setx(5);
+        b.display();
+        Derived d=new Derived();
+        d.sety(10);
+        d.display();
     }
 }
