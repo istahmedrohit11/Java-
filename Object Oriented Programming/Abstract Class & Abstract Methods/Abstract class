@@ -1,0 +1,45 @@
+// Abstract class Parent
+abstract class Parent {  
+    // Constructor of Parent class
+    public Parent() {  
+        System.out.println("I am a constructor");  
+    }  
+    // Concrete method in abstract class
+    public void display() {  
+        System.out.println("I am a java code");  
+    }  
+    // Abstract method that must be implemented by child classes
+    abstract public void greet();  
+}  
+
+// Concrete class Child that extends Parent
+class Child extends Parent {  
+    // Overriding the abstract method greet from Parent class
+    @Override  
+    public void greet() {  
+        System.out.println("I am not c++");  
+    }  
+}  
+
+// Another abstract class Children that extends Parent
+abstract class Children extends Parent {  
+    // This is a concrete method specific to Children class
+    public void great() {  
+        System.out.println("Third class");  
+    }  
+}  
+
+// Main class containing the main method
+public class javacode {  
+    public static void main(String[] args) {  
+        // The following line is commented out because we cannot instantiate an abstract class
+        // Parent p = new Parent(); // This would cause an error  
+
+        // Creating an object of the Child class
+        // This will call the Parent class constructor first, then the Child class object will be created
+        Child c1 = new Child();  
+
+        // The following line is commented out because we cannot instantiate an abstract class
+        // Children d1 = new Children(); // This would cause an error  
+    }  
+}  
