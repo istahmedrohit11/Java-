@@ -1,0 +1,32 @@
+abstract class Parent{
+    public Parent(){
+        System.out.println("Hello java");
+    }
+    public void display(){
+        System.out.println("Hi...........");
+    }
+    abstract public void greet();
+}
+//extend the class with overriding
+class child extends Parent{
+    @Override
+    public void greet(){
+        System.out.println("Welcome");
+    }
+}
+//extend the class without overriding
+// class child2 extends Parent{
+//     public void now(){
+//         System.out.println("how?");
+//     }
+// }  error
+abstract class child2 extends Parent{
+    public void now(){
+        System.out.println("how?");
+    }
+}
+public class Hello{
+    public static void main(String[] args){
+    child2 a1=new child2();
+    }
+}
