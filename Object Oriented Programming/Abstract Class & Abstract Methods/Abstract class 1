@@ -1,0 +1,60 @@
+abstract class Parent{
+    //abstract class is a class that cannot be instantiated,means we cannot create an object of that class
+    //abstract class can have abstract and non-abstract methods
+    
+    public void display(){
+        System.out.println("Display method of Parent class");
+    }
+    
+    abstract public void greet();
+    //abstract method is a method without body
+    //Any non-abstract child class must override it
+}
+
+//concrete class
+class child extends Parent{
+    @Override
+    public void greet(){
+        System.out.println("Hello from child class");
+    }
+}
+// class child2 extends Parent{//error because parent class is abstract
+//     public void now(){
+//         System.out.println(" Hello from child2 class");
+//     }
+// }
+
+//child2 is also abstract, so it is not required to implement the greet() method from Parent class.
+abstract class child2 extends Parent{
+    public void adab(){
+        System.out.println("\nHello from child2 class");
+    }
+}
+
+//extra for clear the concept
+//I created this because i want to call child2 class method in main method
+//and child2 class is abstract so we cannot create an object of child2 class
+//so i created a concrete class which extends child2 class and override the greet() method
+class concretechild2 extends child2{
+    @Override
+    public void greet(){
+        System.out.println("Hello from concretechild2 class");
+    }
+}
+public class Hello{
+    public static void main(String[] args){
+        // Parent p = new Parent(); // cannot create an object of abstract class
+         child c = new child(); // creating an object of child class
+        c.greet(); // calling the greet method of child class
+         c.display(); // calling the display method of parent class
+
+        // child2 c2 = new child2(); // cannot create an object of abstract class
+        // c2.now(); // calling the now method of child2 class
+        // c2.greet(); // calling the greet method of child2 class
+
+        concretechild2 c3 = new concretechild2(); // creating an object of concretechild2 class
+        c3.greet(); // calling the greet method of concretechild2 class
+       // c3.display(); // calling the display method of parent class
+        c3.adab(); // calling the adab method of child2 class
+    }
+}
