@@ -1,0 +1,27 @@
+final class show{
+    final int a=10;
+    final int b=20;
+    //a=20; // This line will cause a compilation error because 'a' is final and cannot be reassigned
+    final public void Sum(){
+        System.out.println("Sum is: "+(a+b));
+    }
+}
+//class show1 extends show{
+   //you cannot extend a final class
+   // This will cause a compilation error
+   // public void Sum(){
+        //System.out.println("Sum is: "+( +a + b));
+   // }
+    // This method cannot override because it was the final method in the parent class
+    
+
+//}
+public class Hello{
+public static void main(String[] args){
+    show obj=new show();
+    obj.Sum();
+    //obj.a=20; // This line will cause a compilation error because 'a' is final and cannot be reassigned
+    //obj.b=30; // This line will cause a compilation error because 'b' is final and cannot be reassigned
+    //obj.Sum(); // This line will cause a compilation error because 'Sum' is final and cannot be overridden
+    }   
+}
