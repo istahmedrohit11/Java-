@@ -1,0 +1,40 @@
+interface Bicycle{
+    int a=45;
+    void applyBreak(int decrement);
+    void speedUp(int increment);
+}
+interface HornBicycle{
+    void blowHornS1();
+    void blowHornS2();
+}
+class FonixCycle implements Bicycle,HornBicycle{
+    //implementing the methods of interface HornBicycle
+    public void blowHornS1(){
+        System.out.println("pee pee");
+    }
+    public void blowHornS2(){
+        System.out.println("poo poo");
+    }
+   
+    //interface`s method will always be public
+   public void applyBreak(int decrement){
+        System.out.println("Applying Brake");
+    }
+   public void speedUp(int increment){
+        System.out.println("Applying SpeedUp");
+    }
+}
+public class javacode{
+    public static void main(String[] args){
+    FonixCycle f1= new FonixCycle();
+    f1.applyBreak(5);
+    //we can create properties in interface
+    System.out.println(f1.a);
+
+    //we cannot modify properties in interface as they are final
+    //f1.a=10;
+    //System.out.println(f1.a);  error
+        f1.blowHornS1();
+        f1.blowHornS2();
+    }
+} 
