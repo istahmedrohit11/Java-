@@ -1,40 +1,61 @@
+//Every method in interface is public and abstract by default 
+//Every variable in interface is public, static and final by default
+//We cannot create constructor in interface
+//We cannot create object of interface
+//We can implement multiple inheritance using interface
+//We can implement multiple interfaces in a class
 interface Bicycle{
     int a=45;
     void applyBreak(int decrement);
     void speedUp(int increment);
 }
 interface HornBicycle{
-    void blowHornS1();
-    void blowHornS2();
+    void HornKGF3();
+    void HornStree2();
 }
-class FonixCycle implements Bicycle,HornBicycle{
-    //implementing the methods of interface HornBicycle
-    public void blowHornS1(){
-        System.out.println("pee pee");
+class FonixCycle implements Bicycle, HornBicycle{
+    //class FonixCycle is implementing Bicycle and HornBicycle interfaces
+    //class FonixCycle is inheriting the properties of Bicycle and HornBicycle interfaces
+
+    int speed=0;
+    //implementing the methods of Bicycle interface
+    public void applyBreak(int decrement){
+        speed= speed-decrement;
+        System.out.println("Speed after applying break: "+speed);
     }
-    public void blowHornS2(){
-        System.out.println("poo poo");
+    public void speedUp(int increment){
+        speed= speed+increment;
+        System.out.println("Speed after speeding up: "+speed);
     }
-   
-    //interface`s method will always be public
-   public void applyBreak(int decrement){
-        System.out.println("Applying Brake");
+    //implementing the methods of HornBicycle interface
+    public void HornKGF3(){
+        System.out.println("Horn KGF3 is blown...");
     }
-   public void speedUp(int increment){
-        System.out.println("Applying SpeedUp");
+    public void HornStree2(){
+        System.out.println("Horn Stree2 is blown...");
     }
 }
+    
 public class javacode{
     public static void main(String[] args){
     FonixCycle f1= new FonixCycle();
-    f1.applyBreak(5);
-    //we can create properties in interface
-    System.out.println(f1.a);
+    f1.applyBreak(10);
+    f1.speedUp(20);
+    System.out.println("Value of a: "+Bicycle.a);
+    //Bicycle.a= 100; //Cannot assign a value to final variable a
+    //System.out.println("Value of a: "+Bicycle.a); //Cannot assign a value to final variable a
+    //Bicycle b1= new Bicycle(); //Cannot instantiate the type Bicycle
+    f1.HornKGF3();
+    f1.HornStree2();
+    System.out.println("");
 
-    //we cannot modify properties in interface as they are final
-    //f1.a=10;
-    //System.out.println(f1.a);  error
-        f1.blowHornS1();
-        f1.blowHornS2();
+    Bicycle b1= new FonixCycle(); //Creating object of FonixCycle class using Bicycle interface
+    b1.applyBreak(10); //Calling method of Bicycle interface using object of FonixCycle class
+    b1.speedUp(20); //Calling method of Bicycle interface using object of FonixCycle class
+    System.out.println("");
+
+    HornBicycle h1= new FonixCycle(); //Creating object of FonixCycle class using HornBicycle interface
+    h1.HornKGF3(); //Calling method of HornBicycle interface using object of FonixCycle class 
+    h1.HornStree2(); //Calling method of HornBicycle interface using object of FonixCycle class
     }
 } 
