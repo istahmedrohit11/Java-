@@ -1,0 +1,45 @@
+interface Bicycle{
+    int a=45;
+    void applyBreak(int decrement);
+    void speedUp(int increment);
+}
+interface HornBicycle{
+    void HornKGF3();
+    void HornStree2();
+}
+class FonixCycle implements Bicycle, HornBicycle{
+    int speed=0;
+    public void applyBreak(int decrement){
+        speed= speed-decrement;
+        System.out.println("Speed after applying break: "+speed);
+    }
+    public void speedUp(int increment){
+        speed= speed+increment;
+        System.out.println("Speed after speeding up: "+speed);
+    }
+    public void HornKGF3(){
+        System.out.println("Horn KGF3 is blown...");
+    }
+    public void HornStree2(){
+        System.out.println("Horn Stree2 is blown...");
+    }
+}
+public class javacode{
+    public static void main(String[] args){ 
+    
+    Bicycle b1 = new FonixCycle();// loose coupling
+    //Why This Is Loose Coupling 
+    //You are not tied to the FonixCycle class in your main code.
+    //You can later change b1 to point to any class that implements--
+    //-- Bicycle (like MountainBike, RoadBike, etc.) without changing the rest of your code.
+    FonixCycle b2 = new FonixCycle();// tight coupling
+    //Why This Is Tight Coupling
+    //You are tied to the FonixCycle class in your main code.
+    //If you later want to change b2 to point to a different class (like MountainBike, RoadBike, etc.),
+    //you will have to change the rest of your code as well.
+  
+    
+// Loose Coupling = Flexibility .You can easily plug in a different implementation.
+//Tight Coupling = Rigidity.Changing one class might break everything else.
+    }
+}
