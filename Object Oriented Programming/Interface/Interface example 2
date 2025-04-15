@@ -1,0 +1,53 @@
+interface Camera{
+    void takePhoto();   
+    void recordVideo();
+}
+interface Wifi{
+    String [] getAvailableNetworks();
+    void connectToNetwork(String networkName);
+}
+
+class MyPhone{
+    void call(String number){
+        System.out.println("Calling " + number + " from MyPhone");
+    }
+    void PicCall(){
+        System.out.println("Connecting to video call from MyPhone");
+    }
+}  
+class MySmartPhone extends MyPhone implements Camera, Wifi{
+    public void takePhoto(){
+        System.out.println("Taking photo from MySmartPhone");
+    }
+
+    public void recordVideo(){
+        System.out.println("Recording video from MySmartPhone");
+    }
+    @Override
+    public String [] getAvailableNetworks(){
+        return new String[]{"Network1", "Network2", "Network3"};
+    }
+    @Override
+    public void connectToNetwork(String networkName){
+        System.out.println("Connecting to " + networkName + " from MySmartPhone");
+    }
+}
+
+
+public class javacode{
+    public static void main(String[] args){
+        MySmartPhone mySmartPhone = new MySmartPhone();
+        mySmartPhone.call("1234567890");
+        mySmartPhone.PicCall();
+        mySmartPhone.takePhoto();   
+        mySmartPhone.recordVideo();
+        
+        String[] networks = mySmartPhone.getAvailableNetworks();
+        System.out.println("\nAvailable networks: ");
+        for(String network : networks){
+            System.out.println(network);
+        }
+        mySmartPhone.connectToNetwork("Network1");
+    }
+} 
+
