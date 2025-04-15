@@ -1,0 +1,24 @@
+abstract class Animal {
+    Animal(String name) {
+        System.out.println("Animal constructor with name: " + name);
+    }
+}
+
+class Cat extends Animal {
+    Cat() {
+        this("Domestic"); // calls Cat(String)
+        System.out.println("Cat constructor (no-arg)");
+    }
+
+    Cat(String type) {
+        super("Tom"); // calls Animal(String)
+        System.out.println("Cat constructor with type: " + type);
+    }
+}
+
+public class Test{
+    public static void main(String[] args) {
+       // Cat c1 = new Cat();             // triggers this(...) and super(...)
+        Cat c2 = new Cat("Siamese");    // directly uses super(...)
+    }
+}
