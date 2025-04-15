@@ -1,3 +1,6 @@
+// cellphone(e)  GPS (i)  Camera (i)  MusicPlayer (i)  
+//                                   e-Smart phone-i,i,i
+
 //Every method in interface is public and abstract by default 
 //Every variable in interface is public, static and final by default
 //We cannot create constructor in interface
@@ -59,3 +62,4 @@ public class javacode{
     h1.HornStree2(); //Calling method of HornBicycle interface using object of FonixCycle class
     }
 } 
+
