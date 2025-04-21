@@ -1,0 +1,49 @@
+interface Engine{
+    void start();
+}
+
+class DieselEngine implements Engine{
+    public void start(){
+        System.out.println("Diesel Engine started.");
+    }
+}
+
+class ElectricEngine implements Engine{
+    public void start(){
+        System.out.println("Electric Engine started.");
+    }
+}
+
+//  Car class uses the Engine interface
+// This is where we achieve loose coupling.
+class Car{
+    Engine engine;
+    //Engine engine; means:I'm creating a reference variable named engine that can point
+    // to any object of a class that implements the Engine interface."
+
+    // Constructor-based Dependency Injection (Loose Coupling)
+    public Car(Engine engine) {
+        this.engine = engine;
+    }
+
+    // Car uses the engine to start
+    public void startCar() {
+        engine.start();
+    }
+}
+
+// Step 4: Main class to test the functionality
+public class LooselyCoupled{
+    public static void main(String[] args) {
+        // Step 5: Create objects with different engines
+        Engine dieselEngine = new DieselEngine(); // You can change this to ElectricEngine
+        Car carWithDiesel = new Car(dieselEngine); // Injecting diesel engine into the car
+
+        carWithDiesel.startCar(); // It will start the diesel engine
+
+        Engine electricEngine = new ElectricEngine(); // Changing to ElectricEngine
+        Car carWithElectric = new Car(electricEngine); // Injecting electric engine into the car
+
+        carWithElectric.startCar(); // It will start the electric engine
+    }
+}
