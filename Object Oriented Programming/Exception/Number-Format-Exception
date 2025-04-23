@@ -1,0 +1,11 @@
+public class Hello{
+    public static void main(String[] args){
+        String str = "abc"; // Not a valid number
+        try {
+            int num = Integer.parseInt(str); // Will throw NumberFormatException
+            System.out.println("Number: "+num);
+        } catch (Exception e){
+            System.out.println(e);
+        }
+    }
+}
