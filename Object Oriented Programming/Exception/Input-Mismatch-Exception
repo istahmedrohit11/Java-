@@ -1,0 +1,19 @@
+import java.util.Scanner;
+
+public class Hello{
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        try {
+            System.out.print("Enter a number: ");
+            int num = scanner.nextInt(); // Will throw exception if input is not an integer
+            System.out.println("You entered:" + num);
+        }catch(Exception e){
+            System.out.println(e);
+            System.out.println("That's not a number!");
+            System.out.println("The program is end");
+        }
+
+        scanner.close();
+    }
+}
+//inputMismatchException
