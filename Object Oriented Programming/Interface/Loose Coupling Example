@@ -1,49 +1,46 @@
 interface Engine{
     void start();
 }
-
 class DieselEngine implements Engine{
-    public void start(){
-        System.out.println("Diesel Engine started.");
+    public  void start(){
+        System.out.println("This is type 1 car.\nDiesel Engine Start");
     }
 }
-
 class ElectricEngine implements Engine{
-    public void start(){
-        System.out.println("Electric Engine started.");
+    public  void start(){
+        System.out.println("This is type 2 car.\nElectric Engine Start");
     }
 }
+// Step 1: Create an interface for the engine
+// Step 2: Create classes that implement the Engine interface
+// Step 3: Create a Car class that uses the Engine interface
+// This is a loosely coupled design because the Car class does not depend on a specific engine implementation.
+// Instead, it depends on the Engine interface, which allows for flexibility and easier testing.
 
-//  Car class uses the Engine interface
-// This is where we achieve loose coupling.
+
 class Car{
     Engine engine;
-    //Engine engine; means:I'm creating a reference variable named engine that can point
-    // to any object of a class that implements the Engine interface."
-
-    // Constructor-based Dependency Injection (Loose Coupling)
-    public Car(Engine engine) {
-        this.engine = engine;
+    // Declare an Engine reference
+    //Here,engine is a reference to an object that implements the Engine interface.
+    // This allows the Car class to be flexible and work with any engine that implements the Engine interface.
+    
+    //constructor
+    public Car(Engine engine){
+      this.engine=engine;  
     }
 
-    // Car uses the engine to start
-    public void startCar() {
+    public void Startcar(){
         engine.start();
     }
 }
-
-// Step 4: Main class to test the functionality
 public class LooselyCoupled{
     public static void main(String[] args) {
-        // Step 5: Create objects with different engines
-        Engine dieselEngine = new DieselEngine(); // You can change this to ElectricEngine
-        Car carWithDiesel = new Car(dieselEngine); // Injecting diesel engine into the car
+    Engine DieselEngine=new DieselEngine();
+    Car type1=new Car(DieselEngine);// Injecting diesel engine into the car
+    type1.Startcar();
+    Engine ElectricEngine=new ElectricEngine();
+    Car type2=new Car(ElectricEngine);
+    type2.Startcar();
 
-        carWithDiesel.startCar(); // It will start the diesel engine
-
-        Engine electricEngine = new ElectricEngine(); // Changing to ElectricEngine
-        Car carWithElectric = new Car(electricEngine); // Injecting electric engine into the car
-
-        carWithElectric.startCar(); // It will start the electric engine
     }
 }
