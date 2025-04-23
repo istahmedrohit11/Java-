@@ -14,3 +14,4 @@ public class Hello {
         System.out.println("End of the program");
     }
 }
+//Arithmetic Exception
