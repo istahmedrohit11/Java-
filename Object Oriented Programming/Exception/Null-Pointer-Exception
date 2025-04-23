@@ -1,0 +1,10 @@
+public class Hello {
+    public static void main(String[] args) {
+        String str = null;  // 'str' is explicitly set to null
+        try {
+            System.out.println(str.length());  // Attempt to access a method on a null object
+        } catch (Exception e){
+            System.out.println(e);
+        }
+    }
+}
