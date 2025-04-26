@@ -1,0 +1,31 @@
+
+public class Hello{
+    public static void main(String[] args){
+        int num[]=new int[3];
+        num[0]=100;
+        num[1]=200; 
+        num[2]=300;
+
+        try{
+            System.out.println("First try block");
+            System.out.println("want to access array index "+num[1]);   
+
+            try{
+                System.out.println("Second try block");
+                System.out.println("want to access array index "+num[2]);
+            }
+            catch(Exception e){     
+                System.out.println("Second catch block");   
+                System.out.println(e);      
+            }
+        }
+        catch(Exception e){ 
+            System.out.println("First catch block");
+            System.out.println(e);  
+        }
+        System.out.println("Whole program is finish");  
+    }   
+}
+
+    
+        
