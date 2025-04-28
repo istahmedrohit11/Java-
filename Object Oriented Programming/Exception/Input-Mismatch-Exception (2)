@@ -1,0 +1,14 @@
+public class Hello {
+    public static void main(String[] args) {
+        try {
+            String input = "abc"; // Hardcoded input (not from user)
+            int num = Integer.parseInt(input); // Will throw exception if input is not a number
+            System.out.println("You entered: " + num);
+        } catch (Exception e) {
+            System.out.println(e);
+            System.out.println("That's not a number!");
+        }
+
+        System.out.println("The program is end");
+    }
+}
