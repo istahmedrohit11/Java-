@@ -21,7 +21,7 @@ public class Hello{
     double ar=area(-9);
     System.out.println("Area is: "+ar);
    }
-   catch(Exception e){
+   catch(NegativeRadiusException e){
     System.out.println(e);
    }
     
