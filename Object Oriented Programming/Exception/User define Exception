@@ -1,0 +1,29 @@
+class NegativeRadiusException extends Exception{
+    @Override
+    public String toString(){
+        return "Negative radius not allowed";
+    }
+}
+
+public class Hello{
+    public static double area(int r)throws NegativeRadiusException{
+        if(r<0){
+            throw new NegativeRadiusException();
+        }
+        double area = Math.PI*r*r;
+        return area;
+    }
+    
+    public static void main(String[] args){
+    
+        
+   try{
+    double ar=area(-9);
+    System.out.println("Area is: "+ar);
+   }
+   catch(Exception e){
+    System.out.println(e);
+   }
+    
+}
+}
