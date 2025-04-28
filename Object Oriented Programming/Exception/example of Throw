@@ -1,26 +1,22 @@
 class MyException extends Exception{
     @Override
     public String toString(){
-        return"Age is less than 18";
-    }
-    @Override
-    public String getMessage(){
-        return "You are not eligible to vote";
+        return"Age should not be less than 18";
     }
 }
 public class Hello{
     public static void main(String[] args){
-    int age=5;
+    int age=19;
     if(age<=18){
         try{
             throw new MyException();
         }
         catch(MyException e){
-             System.out.println(e.toString());  
-            System.out.println(e.getMessage());
+            System.err.println(e.toString());
         }
-        }
-        System.out.println("The program is ended");
+        
+    }else{
+        System.out.println("you are good to go");
+    }
     }
 }
-
