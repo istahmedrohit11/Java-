@@ -1,0 +1,24 @@
+class MyException extends Exception {
+    public String toString() {
+        return "Enter positive area";
+    }
+}
+public class new{
+    public static int Area(int a, int b) throws MyException {
+        if (a < 0 || b < 0) {
+            throw new MyException();
+        }
+        int area = a*b;
+        return area;
+    }
+
+    public static void main(String[] args) {
+        int a = 10, b = -20;
+        try {
+            int result = Area(a, b);
+            System.out.println("Area: " + result);
+        } catch (MyException e) {
+            System.out.println(e);
+        }
+    }
+}
