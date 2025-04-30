@@ -1,0 +1,11 @@
+import java.io.File;
+public class helloworld{
+   public static void main(String[] args){
+    File myfile=new File("Rohit.txt");
+    if(myfile.delete()){
+        System.out.println("I have deleted :"+myfile.getName());
+    }else{
+        System.out.println("Failed to delete the file.");
+    }
+   }
+}
