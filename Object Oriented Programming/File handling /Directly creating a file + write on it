@@ -1,0 +1,15 @@
+import java.io.FileWriter;
+import java.io.IOException;
+public class File{
+    public static void main(String[] args) {
+        try{
+            FileWriter myfile=new FileWriter("Suii.txt");
+            myfile.write("Ronaldo");
+            myfile.close();
+            System.out.println("Data written to file successfully.");
+        }catch(IOException e){
+            e.printStackTrace();
+            System.out.println("Error writing to file.");
+        }
+    }
+}
