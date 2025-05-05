@@ -1,0 +1,18 @@
+import java.io.*;
+public class Hello{
+    public static void main(String[] args) {
+      try{
+        //FileReader fr=new FileReader("Rohit.txt");
+        //BufferedReader br=new BufferedReader(fr);
+        BufferedReader br=new BufferedReader(new FileReader("Rohit.txt"));
+        String line;
+        while((line=br.readLine())!=null){
+            System.out.println(line);
+        }
+        br.close();
+        //fr.close();
+    }catch(Exception e){
+        e.printStackTrace();
+        }
+    }
+}
