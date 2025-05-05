@@ -1,24 +1,18 @@
-
 import java.io.FileWriter;
 import java.io.IOException;
-public class WriteToFile{
 
+public class Hello{
     public static void main(String[] args){
-        try{
-            FileWriter Writer = new FileWriter("Rohit.txt",true);
-            // The second parameter is true, which means append mode
-            // If you want to overwrite the file, set it to false or remove it
-            // Writer = new FileWriter("Rohit.txt", false);
-            // Writer = new FileWriter("Rohit.txt"); // This will also overwrite the file
-
-            Writer.write("Files in Java might be tricky\n");
-            Writer.write("Files in Java might not be tricky\n ");
-            Writer.close();
-            System.out.println("Successfully wrote to the file.");
-
-        }catch (IOException e){
-            System.out.println("An error occurred.");
-            e.printStackTrace();
-        }
+    try{
+        FileWriter w1=new FileWriter("Rohit.txt",true);
+        //this will append the file,means it will add the content at the end of the file
+        //it will not overwrite the file
+        //FileWriter w1=new FileWriter("Rohit.txt",false); // this will overwrite the file
+        //FileWriter w1=new FileWriter("Rohit.txt"); // this will also overwrite the file
+        w1.write("Hey I am over writting here\n");
+        w1.close();
+    }catch(IOException e){
+        e.printStackTrace();
+    }
     }
 }
