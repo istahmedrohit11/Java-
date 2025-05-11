@@ -1,1 +1,32 @@
 
+import javax.swing.JFrame;
+import java.awt.Color;
+import javax.swing.ImageIcon;
+
+public class Hello{
+    public static void main(String[] args){
+         
+        //JFrame= a GUI window to add components and display them
+        JFrame frame=new JFrame();
+        frame.setVisible(true); // make the frame visible 
+        frame.setTitle("this is created by Rohit"); // set the title of the frame
+        frame.setSize(420,420); // set the size of the frame
+        frame.setResizable(false); // make the frame non-resizable
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // exit the program when the frame is closed
+
+        //ImageIcon image=new ImageIcon("C:\\Users\\rohit\\OneDrive\\Documents\\Java\\Java GUI\\src\\icon.png"); // create an image icon
+        // we have to give the path using double backslash 
+        //or
+        ImageIcon image=new ImageIcon("logo.png"); // create an image icon
+        frame.setIconImage(image.getImage()); // set the icon of the frame
+
+        frame.getContentPane().setBackground(Color.red);// set the background color of the frame
+        //its output is red
+        //or
+       // frame.getContentPane().setBackground(new Color(0,255,0)); // set the background color of the frame
+        //  its RGB value is 0,255,0 which is green
+        //or
+        //frame.getContentPane().setBackground(new Color(0x123434));// hexadecimal value
+        // its output is 0x123434 which is a shade of grey
+}
+}
