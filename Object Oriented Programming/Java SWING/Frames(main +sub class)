@@ -1,0 +1,30 @@
+// main class
+/*
+ public class Hello{
+    public static void main(String[] args){
+        MyFrame frame=new MyFrame(); // create an object of MyFrame class
+        //MyFrame is a class which extends JFrame class
+        //or
+       // new MyFrame(); // directly create an object of MyFrame class
+        
+    }
+}
+ */
+
+// Subclass of JFrame class
+
+import javax.swing.ImageIcon;
+import javax.swing.JFrame;
+import java.awt.Color;
+public class MyFrame extends JFrame{
+    MyFrame(){
+        ImageIcon image=new ImageIcon("logo.png"); // create an image icon
+        this.setIconImage(image.getImage()); // set the icon of the frame
+        this.setTitle("this is created by Rohit"); // set the title of the frame
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // exit the program when the frame is closed
+        this.setResizable(false); // make the frame non-resizable
+        this.setSize(420,420); // set the size of the frame
+        this.setVisible(true); // make the frame visible 
+        this.getContentPane().setBackground(new Color(255,0,0)); // set the background color of the frame
+    }
+}
