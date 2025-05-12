@@ -1,0 +1,61 @@
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.BorderFactory;
+import javax.swing.ImageIcon;
+import java.awt.Color;
+import java.awt.Font;
+import java.awt.Image;
+import javax.swing.border.Border;
+
+public class Hello{
+    public static void main(String[] args){
+        //JLabel= a GUI co,pomemt that displays a string of text ,an image or both
+        //JLabel is a class which is used to create a label
+        //JLabel is a part of javax.swing package
+
+        JLabel label=new JLabel();
+        label.setText("Me Rohit\n I am learning java swing");// set the text of the label
+
+        
+        label.setHorizontalTextPosition(JLabel.CENTER);// set text left ,center, RIGHT of imageicon
+        label.setVerticalTextPosition(JLabel.TOP);// set text top ,center,BOTTOM of imageicon
+        label.setForeground(Color.RED); // set the color of the text
+        label.setFont(new Font("MV Boli",Font.PLAIN,30)); // set the font of the text
+        label.setIconTextGap(20) ;// set the gap between the text and the icon
+        label.setBackground(Color.BLACK); // set the background color of the label
+        label.setOpaque(true); // make the label opaque
+
+        ImageIcon image=new ImageIcon("hi.jpg");
+        
+        label.setIcon(image); // set the icon of the label
+        
+        // Scale the image
+        Image scaledImage = image.getImage().getScaledInstance(200, 200, Image.SCALE_SMOOTH);  
+        ImageIcon scaledIcon = new ImageIcon(scaledImage);
+
+        // Set the scaled image as the label icon
+        label.setIcon(scaledIcon);
+       
+        // Create a border
+        Border border = BorderFactory.createLineBorder(Color.BLUE, 15);
+        label.setBorder(border); // set the border of the label
+
+        //
+        label.setVerticalAlignment(JLabel.CENTER); // set the vertical alignment of the label
+        label.setHorizontalAlignment(JLabel.CENTER); // set the horizontal alignment of the label
+
+        //
+       // label.setBounds(50,50,300,300); // set the position and size of the label
+        //set x,y are the position of the label
+
+        JFrame frame=new JFrame(); 
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+       // frame.setSize(500,500);
+        frame.setVisible(true);
+        frame.add(label); // add the label to the frame
+
+        //frame.setLayout(null); // set the layout of the frame to null
+
+        frame.pack(); // set the size of the frame to fit the label
+    }
+}
