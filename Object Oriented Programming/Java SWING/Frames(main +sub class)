@@ -1,4 +1,6 @@
 // main class
+//class name Main.java
+
 /*
  public class Hello{
     public static void main(String[] args){
@@ -11,7 +13,9 @@
 }
  */
 
+
 // Subclass of JFrame class
+//class name MYFrame.java
 
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
