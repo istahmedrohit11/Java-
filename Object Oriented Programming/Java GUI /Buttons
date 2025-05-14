@@ -1,0 +1,65 @@
+// this is the main class
+//this java file name should be Main.java
+    // public class Main{
+    //     public static void main(String[] args){
+    //         MyFrame frame = new MyFrame();
+    //     }
+    // }
+
+
+
+//this is the MyFrame class
+//this java file name should be MyFrame.java
+import java.awt.Color;
+import java.awt.Image;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.ImageIcon;
+
+public class MyFrame extends JFrame{
+    JButton button;
+    JLabel label;
+    MyFrame(){
+        this.setTitle("My First Frame");
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.setLayout(null);
+        this.setSize(420, 420);
+        this.setVisible(true);
+
+        button = new JButton();
+        button.setBounds(150, 100, 250, 150);
+        
+        
+        this.add(button);                  // Add button to the frame
+        button.setText("Click Me");   
+        button.setFocusable(false); // Remove focus from button
+        this.setVisible(true); 
+        button.setForeground(Color.WHITE); // Set text color
+        button.setBackground(Color.BLACK); // Set background color
+
+        ImageIcon icon = new ImageIcon("em.png"); // Load an image icon
+        Image img = icon.getImage(); // Get the image from the icon
+        Image newImg = img.getScaledInstance(100, 100, Image.SCALE_SMOOTH); // Resize the image
+        icon = new ImageIcon(newImg); // Create a new icon with the resized image
+        button.setIcon(icon); // Set the icon to the button
+        button.setHorizontalTextPosition(JButton.CENTER); // Set text position
+        button.setVerticalTextPosition(JButton.BOTTOM); // Set text position
+
+        label = new JLabel();
+
+        ImageIcon icon2 = new ImageIcon("em2.png"); // Load an image icon
+        Image img2 = icon2.getImage(); // Get the image from the icon
+        Image newImg2 = img2.getScaledInstance(100, 100, Image.SCALE_SMOOTH); // Resize the image
+        icon2 = new ImageIcon(newImg2); // Create a new icon with the resized image
+        label.setIcon(icon2); // Set the icon to the label
+        label.setBounds(150, 250, 100, 100); // Set position and size of the label
+        this.add(label); // Add label to the frame
+        label.setVisible(false); // Make the label visible
+
+        button.addActionListener(e -> {
+            System.out.println("Button Pressed");
+            label.setVisible(true); // Make the label visible
+        });
+    }   
+}
