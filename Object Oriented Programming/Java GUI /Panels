@@ -1,0 +1,51 @@
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Image;
+import javax.swing.ImageIcon;
+
+public class Mainn {
+    public static void main(String[] args) {
+        JFrame frame = new JFrame();
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setLayout(null); // it is used to set the layout of the frame to null
+        // which means we can set the position and size of the components manually
+        frame.setSize(500, 500);
+        frame.setVisible(true);
+
+        JPanel redpanel = new JPanel();
+        redpanel.setBackground(Color.red);
+        redpanel.setBounds(0, 0, 150, 150);
+
+        JPanel bluepanel = new JPanel();
+        bluepanel.setBackground(Color.blue);
+        bluepanel.setBounds(150, 0, 150, 150);
+
+        JPanel greenpanel = new JPanel();
+        greenpanel.setBackground(Color.green);
+        greenpanel.setBounds(0, 150, 300, 150);
+
+        // adding the panel to the frame
+        frame.add(redpanel);
+        frame.add(bluepanel);
+        frame.add(greenpanel);
+
+        JLabel label = new JLabel();
+        label.setText("Hiiiii  "); // setting text to label
+
+        ImageIcon icon = new ImageIcon("like.png");
+        Image scaledImage = icon.getImage().getScaledInstance(70, 70, Image.SCALE_SMOOTH);
+        ImageIcon scaledIcon = new ImageIcon(scaledImage);
+        label.setIcon(scaledIcon); // set icon/image to label
+
+        // add label to green panel
+        greenpanel.setLayout(new BorderLayout()); // setting layout to border layout
+        greenpanel.add(label, BorderLayout.SOUTH); // adding label to the east side of green panel
+
+        // set alignment of icon and text inside label
+        label.setHorizontalTextPosition(JLabel.CENTER); // text below icon
+        label.setVerticalTextPosition(JLabel.BOTTOM); // text below icon
+    }
+}
