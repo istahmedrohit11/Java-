@@ -1,0 +1,76 @@
+//this is the main class and the file name is Main.java
+/*
+public class Main{
+    public static void main(String[] args){
+        //JTextField= A GUI component that allows the user to enter text or edit text 
+        MyFrame frame = new MyFrame();
+    }
+}
+ */
+
+//this java file name is MyFrame.java
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JTextField;
+import java.awt.event.ActionListener;
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.FlowLayout;
+import java.awt.Font;
+import java.awt.event.ActionEvent;
+
+public class MyFrame extends JFrame implements ActionListener{
+    JButton button;
+    JTextField textField;
+    MyFrame(){
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.setLayout(new FlowLayout());
+        this.setBounds(100, 100, 500, 500);
+        //this.pack();
+
+        textField = new JTextField();
+        textField.setPreferredSize(new Dimension (350, 40));
+        this.add(textField);
+
+        button = new JButton("Submit");
+        this.add(button);
+        button.addActionListener(this);
+        /*
+        button.addActionListener(this); connects the button's click event to
+        your frame, allowing your actionPerformed method to respond when the button is clicked
+         */
+
+        textField.setFont(new Font("Consolas", Font.PLAIN, 35));
+        textField.setForeground(Color.BLUE);
+        textField.setBackground(Color.BLACK);
+        textField.setCaretColor(Color.WHITE);
+        //setCaretColor sets the color of the text cursor
+
+        textField.setText("Username");
+       // textField.setEditable(false);
+        //setEditable(false) makes the text field non-editable
+
+        this.setVisible(true);
+    }
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        /*
+        This method is called when the button is clicked
+        e.getSource() returns the object that triggered the event
+        In this case, we check if the button was clicked
+        and print the text from the text field
+        */
+        if(e.getSource() == button){
+            System.out.println("Welcome "+textField.getText());
+            button.setEnabled(false);
+            textField.setEditable(false);
+            /*
+            setEnabled(false) makes the button non-clickable after it is clicked
+            setEnabled(false) makes the button non-clickable after it is clicked
+             */
+        }
+    }
+
+}
+
