@@ -1,0 +1,73 @@
+
+import javax.swing.ImageIcon;
+
+import javax.swing.JOptionPane;
+
+
+public class Main{
+    public static void main(String[] args){
+
+    //JOptionPane = pop up a dialog box that prompts the user for a value or informs them of something
+    
+    //(parent component, message, title, message type)
+    JOptionPane.showMessageDialog(null,"This is useless info","Title",JOptionPane.PLAIN_MESSAGE);
+    JOptionPane.showMessageDialog(null,"Here is more useless","Title",JOptionPane.INFORMATION_MESSAGE);
+    JOptionPane.showMessageDialog(null,"Really?","Title",JOptionPane.QUESTION_MESSAGE);
+
+        // while(true){
+        //     JOptionPane.showMessageDialog(null,"Your computer has a Virus","Title",JOptionPane.WARNING_MESSAGE);
+        // }
+
+    JOptionPane.showMessageDialog(null,"Your computer has a Virus","Title",JOptionPane.WARNING_MESSAGE);
+    JOptionPane.showMessageDialog(null,"Call tech support now","Title",JOptionPane.ERROR_MESSAGE);
+    //different types of message dialog boxes
+
+    JOptionPane.showConfirmDialog(null,"Do you want to continue?","Title",JOptionPane.YES_NO_CANCEL_OPTION);
+    // this will create a dialog box with yes, no and cancel options
+
+    System.out.println(JOptionPane.showConfirmDialog(null,"Do you want to continue?","Title",JOptionPane.YES_NO_CANCEL_OPTION));
+    // this will print the value of the option selected by the user
+    // 0 = yes
+    // 1 = no
+    // 2 = cancel
+    // 3 = closed
+
+    int answer = JOptionPane.showConfirmDialog(null,"Do you want to continue?","Title",JOptionPane.YES_NO_CANCEL_OPTION);
+    if(answer == JOptionPane.YES_OPTION){
+        System.out.println("You clicked yes");
+    }else if(answer == JOptionPane.NO_OPTION){
+        System.out.println("You clicked no");
+    }
+    String name = JOptionPane.showInputDialog("What is your name?");
+    
+    // this will create a dialog box with a text field for the user to enter their name
+    System.out.println("Your name is " + name);
+
+    String[] options = {"Option 1", "Option 2", "Option 3"};
+    int option = JOptionPane.showOptionDialog(null, "Choose an option", "Title", JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE, null, options, options[0]);
+    // this will create a dialog box with a list of options for the user to choose from
+    System.out.println("You chose " + options[option]);
+    // this will print the value of the option selected by the user
+
+    ImageIcon icon = new ImageIcon("icon.png");
+   int choice= JOptionPane.showOptionDialog(
+    null,
+    "You are awesome!",
+    "Secret message",
+    JOptionPane.YES_NO_CANCEL_OPTION,
+    JOptionPane.INFORMATION_MESSAGE,
+    icon,
+    null,
+    null
+    );
+    
+    if(choice == JOptionPane.NO_OPTION) {
+            JOptionPane.showMessageDialog(null, "Why not? You're still awesome!", "Response", JOptionPane.PLAIN_MESSAGE);
+        }
+    if(choice == JOptionPane.YES_OPTION) {
+            JOptionPane.showMessageDialog(null, "That's the spirit!", "Response", JOptionPane.PLAIN_MESSAGE);
+        }
+
+
+}
+}
