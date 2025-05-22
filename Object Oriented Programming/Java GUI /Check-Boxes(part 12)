@@ -1,0 +1,66 @@
+//main class
+/*
+public class Main{
+    public static void main(String[] args){
+        //JCheckBox= A GUI component that allows the user to select or deselect an option
+        MyFrame frame = new MyFrame();
+    }
+}
+ */
+
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JCheckBox;
+import javax.swing.JFrame;
+import java.awt.event.ActionListener;
+import java.awt.FlowLayout;
+import java.awt.Font;
+import java.awt.Image;
+import java.awt.event.ActionEvent;
+
+public class MyFrame extends JFrame implements ActionListener{
+
+    JButton button;
+    JCheckBox checkBox;
+    ImageIcon xIcon;
+    ImageIcon checkBoxIcon;
+    MyFrame(){
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.setLayout(new FlowLayout());
+        this.setBounds(100, 100, 500, 500);
+        
+        checkBox = new JCheckBox();
+        this.add(checkBox);
+        checkBox.setText("I am not a robot");
+        checkBox.setFocusable(false);// sets the checkbox to not be focusable
+        checkBox.setFont(new Font("Arial", Font.PLAIN, 25));
+        
+        button = new JButton();
+        button.setText("Submit");
+        button.addActionListener(this);
+        this.add(button);
+
+        xIcon = new ImageIcon("x.png");
+        xIcon.setImage(xIcon.getImage().getScaledInstance(40, 40, Image.SCALE_SMOOTH));
+        checkBox.setIcon(xIcon); // sets the icon when the checkbox is not selected
+        checkBoxIcon = new ImageIcon("checkmark.png");
+        checkBoxIcon.setImage(checkBoxIcon.getImage().getScaledInstance(40, 40, Image.SCALE_SMOOTH));
+        checkBox.setSelectedIcon(checkBoxIcon); // sets the icon when the checkbox is selected
+
+        this.setVisible(true);
+    }
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        if(e.getSource() == button){
+            System.out.println("Button Pressed");
+            if(checkBox.isSelected()){
+                System.out.println("Checkbox is selected");
+            }else{
+                System.out.println("Checkbox is not selected");
+            }
+        }
+    }
+}
+
+
+
