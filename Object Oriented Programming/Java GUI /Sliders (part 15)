@@ -1,0 +1,58 @@
+//main class
+/*
+
+ */
+import javax.swing.*;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
+import java.awt.*;
+
+public class SliderDemo implements ChangeListener{
+    JFrame frame;
+    JPanel panel;
+    JLabel label;
+    JSlider slider;
+    SliderDemo(){
+        frame = new JFrame("Slider Demo");
+        panel = new JPanel();
+        label = new JLabel();
+
+        // Create a slider with a range of 0 to 100 and an initial value of 0
+        slider = new JSlider(0,100,50);
+
+        panel.add(slider);
+        panel.add(label);
+        frame.add(panel);
+        frame.setSize(500,500);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+        slider.setPreferredSize(new Dimension(400,400));
+
+        slider.setPaintTicks(true);
+        slider.setMajorTickSpacing(25);
+        /*
+        set the major tick spacing to 25
+        this will create a tick mark every 25 units
+         */
+        slider.setPaintTicks(true);
+        slider.setMinorTickSpacing(5);
+        // this will create smaller tick marks every 5 units
+        
+
+        slider.setPaintLabels(true);
+        slider.setFont(new Font("Arial",Font.PLAIN,10));
+        slider.setOrientation(SwingConstants.HORIZONTAL);
+
+        label.setText("°C= "+slider.getValue());
+        label.setFont(new Font("Arial",Font.PLAIN,20));
+        slider.addChangeListener(this);
+       
+        frame.setVisible(true);
+    }
+    @Override
+    public void stateChanged(ChangeEvent e){
+        label.setText("°C= "+slider.getValue());
+
+    }
+}
+
