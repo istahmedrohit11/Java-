@@ -1,0 +1,102 @@
+//main class
+/*
+public class Main{
+    public static void main(String[] args){
+        // JRadioButton= it is group of buttons that allows the user to select one option from a set
+        MyFrame frame = new MyFrame();
+    }
+}
+ */
+
+
+import javax.swing.ButtonGroup;
+
+import javax.swing.JFrame;
+import javax.swing.JRadioButton;
+
+import java.awt.event.ActionListener;
+import java.awt.FlowLayout;
+import java.awt.Image;
+import java.awt.event.ActionEvent;
+import javax.swing.ImageIcon;
+
+
+public class MyFrame extends JFrame implements ActionListener{
+
+    JRadioButton pizzButton;
+    JRadioButton burgerButton;
+    JRadioButton hotdogButton;
+
+    ImageIcon pizzaIcon;
+    ImageIcon burgerIcon;
+    ImageIcon hotdogIcon;
+    
+    MyFrame(){
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.setLayout(new FlowLayout());
+        //this.setBounds(100, 100, 500, 500);
+        
+        
+        pizzButton = new JRadioButton("Pizza");
+        burgerButton = new JRadioButton("Burger");
+        hotdogButton = new JRadioButton("Hotdog");
+        
+        
+        this.add(pizzButton);
+        this.add(burgerButton);
+        this.add(hotdogButton);
+
+
+        ButtonGroup group = new ButtonGroup();
+        group.add(pizzButton);
+        group.add(burgerButton);
+        group.add(hotdogButton);
+        /* ^
+        this part of code is used to add the radio buttons to a group
+        so that only one button can be selected at a time
+         */
+        
+
+        pizzButton.addActionListener(this);
+        burgerButton.addActionListener(this);
+        hotdogButton.addActionListener(this);
+        /*
+        this part of code is used to add action listeners to the radio buttons
+        so that when the user clicks on a button, it will call the actionPerformed method
+        and print the selected button
+         */
+
+        pizzaIcon = new ImageIcon("pizza.png");
+        pizzaIcon = new ImageIcon(pizzaIcon.getImage().getScaledInstance(50, 50, Image.SCALE_SMOOTH));
+        burgerIcon = new ImageIcon("burger.png");
+        burgerIcon = new ImageIcon(burgerIcon.getImage().getScaledInstance(50, 50, Image.SCALE_SMOOTH));
+        hotdogIcon = new ImageIcon("hotdog.png");
+        hotdogIcon = new ImageIcon(hotdogIcon.getImage().getScaledInstance(50, 50, Image.SCALE_SMOOTH));
+
+        pizzButton.setIcon(pizzaIcon);
+        burgerButton.setIcon(burgerIcon);
+        hotdogButton.setIcon(hotdogIcon);
+
+        
+        this.pack();
+        this.setVisible(true); 
+    }
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        if(e.getSource() == pizzButton){
+            System.out.println("You order Pizza");
+        }
+        else if(e.getSource() == burgerButton){
+            System.out.println("You order Burger");
+        }
+        else if(e.getSource() == hotdogButton){
+            System.out.println("You order Hotdog");
+        }
+        else{
+            System.out.println("You order nothing");
+        }
+    }
+}
+
+
+
