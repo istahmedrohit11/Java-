@@ -1,0 +1,38 @@
+import java.awt.Font;
+import java.awt.Image;
+import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
+import javax.swing.UIManager;
+
+public class Mainn2{
+    public static void main(String[] args) {
+        // Set a larger default font for JOptionPane
+        UIManager.put("OptionPane.messageFont", new Font("Arial", Font.BOLD, 50));
+        UIManager.put("OptionPane.buttonFont", new Font("Arial", Font.PLAIN, 25));
+
+        // Load and scale image
+        ImageIcon icon = new ImageIcon("love2.jpeg");
+        icon.setImage(icon.getImage().getScaledInstance(200, 200, Image.SCALE_SMOOTH));
+
+        // Show the main option dialog
+        int choice = JOptionPane.showOptionDialog(
+                null,
+                "I like you. Do you like me? If it yes hit no",
+                "Secret message",
+                JOptionPane.YES_NO_CANCEL_OPTION,
+                JOptionPane.INFORMATION_MESSAGE,
+                icon,
+                null,
+                null
+        );
+
+        // Show responses based on user choice
+        if (choice == JOptionPane.NO_OPTION) {
+            JOptionPane.showMessageDialog(null, "No means Yes haha", "Response", JOptionPane.PLAIN_MESSAGE);
+        } else if (choice == JOptionPane.YES_OPTION) {
+            JOptionPane.showMessageDialog(null, "I know you like me haha", "Response", JOptionPane.PLAIN_MESSAGE);
+        } else if (choice == JOptionPane.CANCEL_OPTION) {
+            JOptionPane.showMessageDialog(null, "Hit yes or No", "Response", JOptionPane.PLAIN_MESSAGE);
+        }
+    }
+}
