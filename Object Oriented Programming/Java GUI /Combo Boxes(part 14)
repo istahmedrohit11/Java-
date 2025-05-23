@@ -1,0 +1,44 @@
+//main class
+/*
+public class Main{
+    public static void main(String[] args){
+        //JComboBox= A GUI component that allows the user to select an option from a drop down list
+        MyFrame frame = new MyFrame();
+    }
+}
+ */
+
+
+import javax.swing.JComboBox;
+import javax.swing.JFrame;
+import java.awt.event.ActionListener;
+import java.awt.FlowLayout;
+import java.awt.event.ActionEvent;
+
+public class MyFrame extends JFrame implements ActionListener{
+    JComboBox<String> comboBox;
+    MyFrame(){
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.setLayout(new FlowLayout());
+        this.setSize(200, 200);
+
+        String[] animals = {"Dog", "Cat", "Bird", "Fish"};
+        comboBox= new JComboBox<>(animals);
+        
+        this.add(comboBox);
+        comboBox.addActionListener(this);
+        comboBox.setEditable(true);
+        comboBox.addItem("Horse");
+        comboBox.insertItemAt("crow",5);
+
+        this.setVisible(true);
+    }
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        if(e.getSource()== comboBox){
+            System.out.println(comboBox.getSelectedItem());
+            System.out.println(comboBox.getSelectedIndex());
+
+        }
+    }
+}
