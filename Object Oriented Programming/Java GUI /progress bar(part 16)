@@ -1,0 +1,55 @@
+/* 
+ 
+public class Main{
+    public static void main(String[] args){
+        
+       // JProgressBar= A GUI component that visually represents the progress of a task 
+        // by filling a bar with color as the task progresses
+        
+        ProgressBarDemo demo = new ProgressBarDemo();    
+    }
+}
+
+*/
+
+
+import javax.swing.*;
+import java.awt.*;
+
+public class ProgressBarDemo{
+    
+    JFrame frame= new JFrame();
+    JProgressBar bar= new JProgressBar(0,500);
+    ProgressBarDemo(){
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setSize(400, 200);
+        frame.setLayout(null);
+
+        bar.setValue(0); // Initial value of the progress bar
+        bar.setBounds(50, 50, 300, 30); // Position and size of the progress bar
+        bar.setStringPainted(true); // Show the percentage text on the bar
+
+        frame.add(bar); // Add the progress bar to the frame
+        bar.setFont(new Font("Arial", Font.BOLD, 36)); // Set the font for the text on the progress bar
+        bar.setForeground(Color.BLUE); // Set the color of the progress bar
+        bar.setBackground(Color.BLACK); // Set the background color of the progress bar
+        frame.setVisible(true); // Make the frame visible
+
+        fill();
+        //must remember fill() method will be after the frame.setVisible(true)
+        //otherwise the progress bar will not be visible
+    }
+    public void fill(){
+       int count = 500; // Counter for the progress
+       while(count>0){
+            bar.setValue(count); // Set the current value of the progress bar
+            try{
+                Thread.sleep(100);// 1000 means Sleep for 1 second to simulate progress
+            }catch (InterruptedException e){
+                e.printStackTrace();
+            }
+            count=count-1; 
+       }
+        bar.setString("Completed!"); // Set the text on the progress bar when done
+    }
+}
