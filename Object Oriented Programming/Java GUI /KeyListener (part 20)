@@ -1,0 +1,96 @@
+/* 
+public class Main{
+    public static void main(String[] args){  
+        //JColorChooser=A GUI component that allows users to choose colors
+        MyFrame frame = new MyFrame(); 
+    }
+}
+
+*/
+
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+
+import java.awt.Color;
+import java.awt.Image;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
+import javax.swing.ImageIcon;
+
+
+
+public class MyFrame extends JFrame implements KeyListener {
+    
+    JLabel label;
+    ImageIcon icon;
+
+    MyFrame(){
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.setSize(420, 420);
+        this.setLayout(null);
+
+        this.addKeyListener(this);
+        label = new JLabel();
+        label.setBounds(0, 0, 100, 100);
+        label.setBackground(Color.red);
+        label.setOpaque(true); // Make the label opaque to see the background color
+        this.add(label);
+
+        icon = new ImageIcon("rocket.png"); 
+        icon = new ImageIcon(icon.getImage().getScaledInstance(100, 100, Image.SCALE_SMOOTH));
+        label.setIcon(icon);
+        this.getContentPane().setBackground(Color.black); // Set background color of the frame
+        
+        
+        this.setVisible(true);
+    }
+    // KeyListener interface has three methods that need to be implemented:
+    //KyeTyped= is invoked when a key is typed, which means a character is entered.
+    //KeyPressed= is invoked when a key is pressed down which means the key is pressed down but not yet released.
+    //KeyReleased= is invoked when a key is released, which means the key is no longer pressed down.
+
+
+    @Override
+    public void keyTyped(KeyEvent e){
+        switch (e.getKeyChar()) {
+            case 'a':
+                label.setLocation(label.getX() - 10, label.getY());
+                break;
+            case 'd':
+                label.setLocation(label.getX() + 10, label.getY());
+                break;
+            case 'w':
+                label.setLocation(label.getX(), label.getY() - 10);
+                break;
+            case 's':
+                label.setLocation(label.getX(), label.getY() + 10);
+                break;
+        }
+        
+    }
+    @Override
+    public void keyPressed(KeyEvent e){
+        switch(e.getKeyCode()) {
+            case KeyEvent.VK_LEFT:
+                label.setLocation(label.getX() - 10, label.getY());
+                break;
+            case KeyEvent.VK_RIGHT:
+                label.setLocation(label.getX() + 10, label.getY());
+                break;
+            case KeyEvent.VK_UP:
+                label.setLocation(label.getX(), label.getY() - 10);
+                break;
+            case KeyEvent.VK_DOWN:
+                label.setLocation(label.getX(), label.getY() + 10);
+                break;
+        }
+    }
+    @Override
+    public void keyReleased(KeyEvent e){
+        System.out.println("You released key char: " + e.getKeyChar());
+        System.out.println("You released key code: " + e.getKeyCode());
+        
+    }
+}
+
+
