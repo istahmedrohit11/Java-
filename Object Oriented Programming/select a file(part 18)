@@ -1,0 +1,65 @@
+/* 
+
+public class Main{
+    public static void main(String[] args){
+        
+        //JFileChooser=A GUI component that allows users to choose files or directories
+
+        MyFrame frame = new MyFrame();
+        
+         
+    }
+}
+*/
+
+import javax.swing.JFrame;
+import java.awt.FlowLayout;
+import java.awt.event.ActionListener;
+import javax.swing.JButton;
+import javax.swing.JFileChooser;
+import java.io.File;
+
+
+public class MyFrame extends JFrame implements ActionListener{
+    
+    JButton button;
+    JFileChooser fileChooser;
+    MyFrame(){
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.setSize(420, 420);
+        this.setLayout(new FlowLayout());
+
+        button = new JButton("Select File");
+        button.addActionListener(this);
+        this.add(button);
+
+        this.setVisible(true);
+    }
+    @Override
+    public void actionPerformed(java.awt.event.ActionEvent e) {
+        if(e.getSource()==button){
+            fileChooser = new JFileChooser();
+
+            //set the current directory to the user's home directory
+            fileChooser.setCurrentDirectory(new File("."));
+
+
+            //this will use the JFileChooser to open a file dialog
+            int response = fileChooser.showOpenDialog(null);
+            
+           
+            if(response == JFileChooser.APPROVE_OPTION){
+                System.out.println("File Selected: " + fileChooser.getSelectedFile().getAbsolutePath());
+            }else{
+                System.out.println("No file selected");
+            }
+
+            //int response = fileChooser.showSaveDialog(null);
+            //this will use the JFileChooser to save a file dialog
+
+            
+        }
+        
+    }
+}
+
