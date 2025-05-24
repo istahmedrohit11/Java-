@@ -1,0 +1,105 @@
+/* 
+ 
+public class Main{
+    public static void main(String[] args){
+        
+        //JMenu= is a menu that holds menu items
+        
+        MyFrame frame = new MyFrame();
+        
+         
+    }
+}
+
+*/
+
+import javax.swing.JFrame;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
+import java.awt.FlowLayout;
+import java.awt.Image;
+import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+import javax.swing.ImageIcon;
+
+
+
+public class MyFrame extends JFrame implements ActionListener{
+    JMenuItem loadItem;
+    JMenuItem saveItem;
+    JMenuItem exitItem;
+    // Icons for the menu items
+    ImageIcon loadIcon;
+    ImageIcon saveIcon;
+    ImageIcon exitIcon;
+
+    MyFrame(){
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.setSize(420, 420);
+        this.setLayout(new FlowLayout());
+
+        JMenuBar menuBar = new JMenuBar();
+        this.setJMenuBar(menuBar);
+
+        JMenu fileMenu= new JMenu("File");
+        JMenu editMenu= new JMenu("Edit");
+        JMenu helpMenu= new JMenu("Help");
+        JMenu viewMenu= new JMenu("View");
+
+        menuBar.add(fileMenu);
+        menuBar.add(editMenu);
+        menuBar.add(helpMenu);
+        menuBar.add(viewMenu);
+        
+        loadItem = new JMenuItem("Load");
+        saveItem = new JMenuItem("Save");
+        exitItem = new JMenuItem("Exit");
+
+        fileMenu.add(loadItem);
+        fileMenu.add(saveItem); 
+        fileMenu.add(exitItem);
+
+        loadItem.addActionListener(this);
+        saveItem.addActionListener(this);
+        exitItem.addActionListener(this);
+
+        // Adding mnemonics for keyboard shortcuts
+        // Mnemonics allow users to use Alt + Key to activate the menu item
+        loadItem.setMnemonic(KeyEvent.VK_L); // Alt + L
+        saveItem.setMnemonic(KeyEvent.VK_S); // Alt + S 
+        exitItem.setMnemonic(KeyEvent.VK_E); // Alt + E
+        
+        fileMenu.setMnemonic(KeyEvent.VK_F); // Alt + F for File menu
+        editMenu.setMnemonic(KeyEvent.VK_E); // Alt + E for Edit menu
+        helpMenu.setMnemonic(KeyEvent.VK_H); // Alt + H for Help menu
+        viewMenu.setMnemonic(KeyEvent.VK_V); // Alt + V for View menu
+
+        loadIcon = new ImageIcon("load.jpeg");
+        loadIcon = new ImageIcon(loadIcon.getImage().getScaledInstance(20, 20, Image.SCALE_SMOOTH));
+        saveIcon = new ImageIcon("save.png");
+        saveIcon = new ImageIcon(saveIcon.getImage().getScaledInstance(20, 20, Image.SCALE_SMOOTH));
+        exitIcon = new ImageIcon("exit.png");
+        exitIcon = new ImageIcon(exitIcon.getImage().getScaledInstance(20, 20, Image.SCALE_SMOOTH));
+
+        loadItem.setIcon(loadIcon);
+        saveItem.setIcon(saveIcon);
+        exitItem.setIcon(exitIcon);
+        
+        this.setVisible(true);
+    }
+    @Override
+    public void actionPerformed(java.awt.event.ActionEvent e) {
+        if(e.getSource() ==loadItem){
+            System.out.println("Load button clicked");
+        }
+        if(e.getSource() ==saveItem){
+            System.out.println("Save button clicked");
+        }
+        if(e.getSource() ==exitItem){
+            System.exit(0);
+        }
+        
+    }
+}
+
