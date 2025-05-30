@@ -1,0 +1,112 @@
+/*
+ 
+public class Main{
+    public static void main(String[] args){  
+        //Key Bindings= bind an action to a keyStroke 
+        //              dont require you to click on the component to give it focus
+        //              increased flexibility compared to keyListeners
+        //              can assign key strokes to individual swing components
+        //              more difficult to implement than keyListeners
+       
+        Game game = new Game();
+    }
+}
+ */
+import javax.swing.AbstractAction;
+import javax.swing.Action;
+
+import java.awt.Color;
+import java.awt.event.ActionEvent;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.KeyStroke;
+
+
+public class Game{
+
+    JFrame frame;
+    JLabel label;
+
+    Action UpAction;
+    Action DownAction;
+    Action LeftAction;
+    Action RightAction;
+
+    Game(){
+        frame = new JFrame("Key Bindings Example");
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setSize(400, 400);
+        frame.setLayout(null);  
+
+        label = new JLabel("Press Arrow Keys");
+        label.setBackground(Color.RED);
+        label.setBounds(100, 100, 100, 100);
+        label.setOpaque(true);
+        frame.add(label);
+
+        UpAction = new UpAction();
+        DownAction = new DownAction();
+        LeftAction = new LeftAction();
+        RightAction = new RightAction();
+
+        
+        label.getInputMap().put(KeyStroke.getKeyStroke("UP"), "upAction");
+        label.getActionMap().put("upAction", UpAction);
+
+        label.getInputMap().put(KeyStroke.getKeyStroke("DOWN"), "downAction");
+        label.getActionMap().put("downAction", DownAction);
+
+        label.getInputMap().put(KeyStroke.getKeyStroke("LEFT"), "leftAction");
+        label.getActionMap().put("leftAction", LeftAction);
+
+        label.getInputMap().put(KeyStroke.getKeyStroke("RIGHT"), "rightAction");
+        label.getActionMap().put("rightAction", RightAction);
+        // Set up key bindings for the label
+
+        label.getInputMap().put(KeyStroke.getKeyStroke('w'), "upAction");
+        label.getActionMap().put("upAction", UpAction);
+
+        label.getInputMap().put(KeyStroke.getKeyStroke('s'), "downAction");
+        label.getActionMap().put("downAction", DownAction);
+
+        label.getInputMap().put(KeyStroke.getKeyStroke('a'), "leftAction");
+        label.getActionMap().put("leftAction", LeftAction);
+
+        label.getInputMap().put(KeyStroke.getKeyStroke('d'), "rightAction");
+        label.getActionMap().put("rightAction", RightAction);
+
+        frame.setVisible(true);
+    }
+    public class UpAction extends AbstractAction{
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            label.setLocation(label.getX(), label.getY() - 10);
+            // Move the label up by 10 pixels
+        }
+    }
+    public class DownAction extends AbstractAction{
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            label.setLocation(label.getX(), label.getY() + 10);
+            // Move the label down by 10 pixels
+        }
+    }
+    public class LeftAction extends AbstractAction{
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            label.setLocation(label.getX() - 10, label.getY());
+            // Move the label left by 10 pixels
+        }
+    }
+    public class RightAction extends AbstractAction{
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            label.setLocation(label.getX() + 10, label.getY());
+            // Move the label right by 10 pixels
+        }
+    }
+}
+    
+
+
+
