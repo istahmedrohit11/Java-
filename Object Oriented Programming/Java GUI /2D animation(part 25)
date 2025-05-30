@@ -1,0 +1,97 @@
+//this java file name is Main.java
+/*
+public class Main{
+    public static void main(String[] args){   
+        MyFrame frame = new MyFrame();
+    }
+}
+ */
+
+
+//this java file name is MyFrame.java
+/*
+import javax.swing.JFrame;
+public class MyFrame extends JFrame{
+    MyPanel panel;
+    MyFrame(){
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+       // this.setSize(500, 500);
+        this.setLocationRelativeTo(null); // Center the frame on the screen
+
+        panel = new MyPanel();
+        this.add(panel);
+        this.pack(); // Automatically size the frame based on the panel's preferred size
+        this.setVisible(true);
+    }    
+}
+ */
+
+
+// This java file name is MyPanel.java
+
+import javax.swing.JPanel;
+import java.awt.Image;
+import java.awt.event.ActionListener;
+
+import javax.swing.Timer;
+import javax.swing.Action;
+import javax.swing.ImageIcon;
+import java.awt.event.ActionEvent;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.Color;
+import java.awt.Dimension;
+
+
+public class MyPanel extends JPanel implements ActionListener{
+    
+    final int PANEL_WIDTH = 500;
+    final int PANEL_HEIGHT = 500;
+    Image enemy;
+    Image backgroundImage;
+    Timer gameTimer;
+    int xVelocity = 5;
+    int yVelocity = 2;
+    int xEnemy = 0;
+    int yEnemy = 0;
+
+    MyPanel(){
+        this.setPreferredSize(new Dimension(PANEL_WIDTH, PANEL_HEIGHT));
+        this.setBackground(Color.WHITE); // Set the background color to white
+        enemy = new ImageIcon("last2.jpg").getImage();
+        enemy = enemy.getScaledInstance(100, 100, Image.SCALE_SMOOTH); // Scale the image to 50x50 pixels
+
+        backgroundImage = new ImageIcon("last3.jpg").getImage();
+        backgroundImage = backgroundImage.getScaledInstance(500, 500, Image.SCALE_SMOOTH); // Scale the background image
+       
+        gameTimer=new Timer(40,this);//delay 1000 milliseconds means 1 second
+        gameTimer.start(); // Start the timer to trigger action events every second
+
+    }
+    public void paint(Graphics g){
+        super.paint(g); // Call the superclass's paint method to clear the panel
+
+        Graphics g2d = (Graphics2D) g;
+        g2d.drawImage(backgroundImage, 0, 0, null); // Draw the background image
+        g2d.drawImage(enemy, xEnemy, yEnemy, null);
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        
+        if(xEnemy>=PANEL_WIDTH - enemy.getWidth(null)|| xEnemy < 0){
+            // If the enemy reaches the right edge or left edge of the panel, reverse its direction
+            xVelocity= xVelocity * -1;
+        }
+        xEnemy= xEnemy + xVelocity;
+        repaint();
+        
+        if(yEnemy>=PANEL_HEIGHT - enemy.getHeight(null) || yEnemy < 0){
+            // If the enemy reaches the bottom edge or top edge of the panel, reverse its direction
+            yVelocity= yVelocity * -1;
+        }
+        yEnemy= yEnemy + yVelocity;
+        repaint(); 
+    }
+    
+}
