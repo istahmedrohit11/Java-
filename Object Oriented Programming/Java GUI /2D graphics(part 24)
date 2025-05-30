@@ -1,0 +1,85 @@
+//this java file name is Main.java
+/*
+public class Main{
+    public static void main(String[] args){  
+       
+        MyFrame frame = new MyFrame();
+    }
+}
+ */
+
+//this java file name is MyFrame.java
+/*
+
+import javax.swing.JFrame;
+
+public class MyFrame extends JFrame{
+
+    MyPanel panel;
+    MyFrame(){
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+       // this.setSize(400, 400);
+        this.setLocationRelativeTo(null); // Center the frame on the screen
+
+        panel = new MyPanel();
+        this.add(panel);
+        this.pack(); // Automatically size the frame based on the panel's preferred size
+        this.setVisible(true);
+    }     
+}
+   
+ */
+
+// This java file name is MyPanel.java
+import javax.swing.ImageIcon;
+import javax.swing.JPanel;
+
+import java.awt.BasicStroke;
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Font;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.Image;
+
+
+public class MyPanel extends JPanel{
+    Image image;
+    MyPanel(){
+        this.setPreferredSize(new Dimension(400, 400));
+        image=new ImageIcon("dizzy.png").getImage();
+    }
+    public void paint(Graphics g){
+
+        Graphics2D g2D = (Graphics2D) g;
+        //g2D.setPaint(Color.blue);
+        //g2D.setStroke(new BasicStroke(5));
+
+       //g2D.drawLine(0,0, 400, 400);
+       //g2D.drawRect(50, 50, 300, 300);
+      // g2D.fillRect(50, 50, 300, 300);
+        // g2D.drawOval(50, 50, 300, 300);
+        // g2D.fillOval(50, 50, 300, 300);
+       // g2D.drawArc(50, 50, 300, 300, 0, 180);
+
+        //this part is for drawing two half circle with different colors
+        // g2D.setColor(Color.RED);
+        // g2D.fillArc(50, 50, 300, 300, 0, 180);
+        // g2D.setColor(Color.WHITE);
+        // g2D.fillArc(50, 50, 300, 300, 180, 180);
+
+        //this part is for drawing a triangle
+        // int [] xPoints = {200, 100, 300};
+        // int [] yPoints = {100, 300, 300};
+        // g2D.setColor(Color.BLACK);
+       // g2D.drawPolygon(xPoints, yPoints, 3);
+        // g2D.fillPolygon(xPoints, yPoints, 3);
+
+        //this part write text on the panel
+        // g2D.setColor(Color.BLACK);
+        // g2D.setFont(new Font("Arial", Font.BOLD, 30));
+        // g2D.drawString("Hello World", 100, 200);     
+
+        g2D.drawImage(image , 0, 0, null);
+    }
+}
